@@ -1,0 +1,9 @@
+{
+  "file": "food_desert_proxy",
+  "method": "ACS poverty+income proxy (USDA FARA unavailable)",
+  "note": "LILA proxy: poverty_rate >= 20 AND median_hh_income <= 65000",
+  "limitation": "USDA FARA direct download blocked; proxy used pending manual FARA download",
+  "food_desert_tracts": 3831,
+  "total_tracts": 15578,
+  "pct": 24.6
+}
