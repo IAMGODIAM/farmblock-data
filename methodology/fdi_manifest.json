@@ -1,0 +1,28 @@
+{
+  "dataset": "FarmBlock Distress Index v2.0",
+  "publisher": "E5 Enclave Incorporated",
+  "date": "2026-04-17",
+  "license": "CC0 1.0 Universal",
+  "tracts": 15578,
+  "cities": 49,
+  "fdi_dimensions": {
+    "D1_economic": "poverty_rate (Census ACS 2023)",
+    "D2_income": "inverted median_hh_income (Census ACS 2023)",
+    "D3_food_access": "food_desert_proxy \u00d7 60 + pct_no_internet \u00d7 0.4",
+    "D4_health": "mean(pct_diabetes, pct_high_bp) \u2014 CDC PLACES 2023",
+    "D5_vacancy": "vacancy_rate (Census ACS 2023)",
+    "D6_digital": "pct_no_internet (Census ACS 2023)"
+  },
+  "weights": "equal (1/6 each dimension) \u2014 v1 baseline",
+  "normalization": "min-max 0-1 per dimension across all tracts in dataset",
+  "limitations": [
+    "USDA FARA 2019 vintage \u2014 food access proxy used from ACS poverty+income thresholds",
+    "CDC PLACES 2023 \u2014 crude prevalence estimates, not direct measurement",
+    "D4 health imputed to 0 where CDC data unavailable (conservative)",
+    "Food desert proxy: poverty_rate>=20 AND median_hh_income<=65000 (documented ACS approximation)",
+    "Dataset covers 50 metropolitan counties \u2014 not a national sample",
+    "FARA direct download unavailable \u2014 ACS poverty proxy substituted and labeled",
+    "Equal weights are a v1 baseline \u2014 alternative weightings should be tested"
+  ],
+  "sha256_fdi_csv": "adb2244e679a34e1de1a743dddf4008fd370352ec56bcefae51a09f4911422f2"
+}
