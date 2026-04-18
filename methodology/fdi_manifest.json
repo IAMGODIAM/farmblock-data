@@ -4,7 +4,7 @@
   "date": "2026-04-17",
   "license": "CC0 1.0 Universal",
   "tracts": 15578,
-  "cities": 49,
+  "cities": 50,
   "fdi_dimensions": {
     "D1_economic": "poverty_rate (Census ACS 2023)",
     "D2_income": "inverted median_hh_income (Census ACS 2023)",
@@ -24,5 +24,6 @@
     "FARA direct download unavailable \u2014 ACS poverty proxy substituted and labeled",
     "Equal weights are a v1 baseline \u2014 alternative weightings should be tested"
   ],
-  "sha256_fdi_csv": "adb2244e679a34e1de1a743dddf4008fd370352ec56bcefae51a09f4911422f2"
+  "sha256_fdi_csv": "adb2244e679a34e1de1a743dddf4008fd370352ec56bcefae51a09f4911422f2",
+  "cities_note": "50 cities confirmed by row count in processed/farmblock_city_rankings.csv (authoritative)"
 }
