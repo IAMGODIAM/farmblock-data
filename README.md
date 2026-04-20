@@ -83,7 +83,7 @@ Results are deterministic given the same source data vintage.
 
 ## Citation
 
-> E5 Enclave Incorporated. (2026). *FarmBlock Distress Index v2.0: Structural Food Insecurity Across American Urban Census Tracts.* CC0 1.0 Universal. GitHub: IAMGODIAM/farmblock-dataset
+> E5 Enclave Incorporated. (2026). *FarmBlock Distress Index v2.0: Structural Food Insecurity Across American Urban Census Tracts.* CC0 1.0 Universal. GitHub: IAMGODIAM/farmblock-data
 
 ---
 
