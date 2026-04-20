@@ -70,7 +70,7 @@ These are the numbers all public language must use. Any document saying somethin
 
 | Drift | Location A | Location B | Resolution |
 |-------|-----------|-----------|------------|
-| City count: 49 vs 50 | `fdi_manifest.json` says 49 | `city_rankings.csv` has 50 actual rows | **50 is correct** (verified row count). Update `fdi_manifest.json` to 49→50. |
+| City count: 49 vs 50 | ~~`fdi_manifest.json` said 49~~ | `city_rankings.csv` has 50 rows | **RESOLVED 2026-0420** — `fdi_manifest.json` updated to 50. `BDI_QUANT_SPEC.md` updated to 50. Canonical: **50 cities**. |
 | City count: 49/50 vs 53 | `farmblock-data` says 49/50 | `farmblock-dataset` says 53 cities | **Both correct** — these are different city sets for different products. Explicit labeling required. |
 | Tract count: 15,578 vs 12,426 | `farmblock-data/fdi_manifest.json`: 15,578 | `farmblock-dataset/fdi_methodology_v2.json`: 12,426 | **Both correct** — different runs, different geographic scope. farmblock-data is the larger authoritative dataset. |
 | `% Black` inclusion | Tract FDI: NOT included | County FDI: included at 15% | **Intentional product difference**, not drift. Documented in `race_variable_note.md`. Both correct. |
