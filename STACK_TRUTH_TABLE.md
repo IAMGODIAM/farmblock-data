@@ -25,7 +25,7 @@ A reviewer will attack inconsistency faster than they attack complexity. This ta
 | **Product role** | Product B — Tract-level distress (operational) | Product B — County-level distress (pilot publication) | Layer 1 — Sovereign raw evidence archive | Product A — National structural record (synthesized) |
 | **Unit of analysis** | Census tract | County | Series-level observation (national/state/metro/county) | Pillar score + composite |
 | **Version** | FDI v2.0 | FDI v2.0 Phase 2 (24-county pilot) + Phase 3 (3,144-county estimated) | v3.1 | v1.0-SEALED |
-| **Geography universe** | 49 priority cities | 17 priority states (Phase 2: 24 counties; Phase 3: est. 3,144 counties) | National — Tier 1 (national/state), Tier 2 (MSA), Tier 3 (county) | 17 priority states (state-level composite scores) |
+| **Geography universe** | 50 priority cities | 17 priority states (Phase 2: 24 counties; Phase 3: est. 3,144 counties) | National — Tier 1 (national/state), Tier 2 (MSA), Tier 3 (county) | 17 priority states (state-level composite scores) |
 | **Observation / entity count** | **15,578 tracts** (verified: `processed/farmblock_fdi_v2.csv`) | **24 counties** published (Phase 2 CSV); **53 cities** in `cities_v2.csv`; Phase 3 covers est. 3,144 counties | **~14,811 verified data points** across 16 active files (see VAULT_MANIFEST v3.1) | **1,574 empirical observations** (corrected from 1,855; counting rule in BDI_QUANT_SPEC.md) |
 | **City/place count** | **50 cities** in city_rankings.csv (verified row count) | **53 cities** in cities_v2.csv | N/A — series data, not city-ranked | N/A |
 | **Score formula** | `(D1_poverty + D2_income_inv + D3_food_access + D4_health + D5_vacancy + D6_digital) / 6 × 100` | `poverty×0.25 + health×0.25 + digital×0.20 + vacancy×0.15 + Black_pct×0.15` | No scoring — raw evidence only | `Economic×0.20 + Health×0.20 + CJ×0.20 + Education×0.15 + Housing×0.10 + Env×0.10 + Political×0.05` |
@@ -36,7 +36,7 @@ A reviewer will attack inconsistency faster than they attack complexity. This ta
 | **Empirical window** | ACS 2023 + CDC PLACES 2023 (cross-section) | ACS 2022 + CDC PLACES 2023 + BLS LAU 2025 (cross-section) | 1514–2025 (varies by series; empirical scoring series: 1991–2024) | 1991–2024 (empirical scoring); 1514–1866 (Slave Voyages historical context) |
 | **Authoritative files** | `methodology/fdi_manifest.json`, `methodology/METHODOLOGY.md`, `processed/farmblock_fdi_v2.csv` | `methodology/fdi_methodology_v2.json`, `farmblock_fdi_phase2.csv`, `methodology/race_variable_note.md` | `VAULT_MANIFEST.json` v3.1, `STACK.md`, `dual_source_log.json` | `BDI_QUANT_SPEC.md`, `README.md` v2.0, `bdi_sovereign_dataset_v1.json` |
 | **License** | CC0 1.0 Universal | CC0 1.0 Universal | CC0 1.0 Universal | CC0 1.0 Universal |
-| **Cite for** | Tract-level food distress scores within the 49/50 priority cities | County-level pilot distress rankings (24 counties published; Phase 3 forthcoming) | Raw source series: BLS unemployment, NCHS health, SCF wealth, BJS incarceration, NAEP, HMDA, Slave Voyages | National/state-level BDI composite scores, pillar-level structural record, 8-pillar synthesis |
+| **Cite for** | Tract-level food distress scores within the 50 priority cities | County-level pilot distress rankings (24 counties published; Phase 3 forthcoming) | Raw source series: BLS unemployment, NCHS health, SCF wealth, BJS incarceration, NAEP, HMDA, Slave Voyages | National/state-level BDI composite scores, pillar-level structural record, 8-pillar synthesis |
 | **Do NOT cite for** | National county-level rankings or state comparisons | National claims beyond 17-state scope | Derived scores or composite calculations | Tract or city-level FDI scores (use farmblock-data or farmblock-dataset instead) |
 
 ---
@@ -48,7 +48,7 @@ These are the numbers all public language must use. Any document saying somethin
 | Claim | Locked value | Source | Notes |
 |-------|-------------|--------|-------|
 | Tracts scored (farmblock-data) | **15,578** | `processed/farmblock_fdi_v2.csv` row count (verified) | |
-| Cities ranked (farmblock-data) | **50** | `processed/farmblock_city_rankings.csv` row count (verified) | manifest says 49 — manifest is WRONG, update it |
+| Cities ranked (farmblock-data) | **50** | `processed/farmblock_city_rankings.csv` row count (verified) | manifest confirmed at 50 (updated 2026-0420) |
 | Cities in farmblock-dataset | **53** | `processed/farmblock_cities_v2.csv` row count (verified) | |
 | Counties in Phase 2 published release | **24** | `farmblock_fdi_phase2.csv` row count (verified) | Intentional pilot slice |
 | Counties in Phase 3 estimated scope | **~3,144** | `farmblock_phase3_manifest.json` coverage field | |
@@ -71,7 +71,7 @@ These are the numbers all public language must use. Any document saying somethin
 | Drift | Location A | Location B | Resolution |
 |-------|-----------|-----------|------------|
 | City count: 49 vs 50 | ~~`fdi_manifest.json` said 49~~ | `city_rankings.csv` has 50 rows | **RESOLVED 2026-0420** — `fdi_manifest.json` updated to 50. `BDI_QUANT_SPEC.md` updated to 50. Canonical: **50 cities**. |
-| City count: 49/50 vs 53 | `farmblock-data` says 49/50 | `farmblock-dataset` says 53 cities | **Both correct** — these are different city sets for different products. Explicit labeling required. |
+| City count: 50 vs 53 | `farmblock-data` says 50 | `farmblock-dataset` says 53 cities | **Both correct** — these are different city sets for different products. Explicit labeling required. |
 | Tract count: 15,578 vs 12,426 | `farmblock-data/fdi_manifest.json`: 15,578 | `farmblock-dataset/fdi_methodology_v2.json`: 12,426 | **Both correct** — different runs, different geographic scope. farmblock-data is the larger authoritative dataset. |
 | `% Black` inclusion | Tract FDI: NOT included | County FDI: included at 15% | **Intentional product difference**, not drift. Documented in `race_variable_note.md`. Both correct. |
 | Health: direct vs proxy | farmblock-data METHODOLOGY.md says CDC PLACES direct | fdi_methodology_v2.json limitation note mentions proxy | **Phase 2 county formula uses CDC PLACES direct** (verified in phase2 JSON). Proxy was Phase 1 only. Update fdi_methodology_v2.json limitation note. |
@@ -81,13 +81,13 @@ These are the numbers all public language must use. Any document saying somethin
 
 ## FIXES REQUIRED (files to update after this truth table is committed)
 
-| File | Fix needed | Priority |
-|------|-----------|---------|
-| `farmblock-data/methodology/fdi_manifest.json` | Update `cities` from 49 → 50 (verified row count) | HIGH |
-| `farmblock-dataset/methodology/fdi_methodology_v2.json` | Remove proxy language from Phase 2 health limitation — Phase 2 uses CDC PLACES direct | MEDIUM |
-| `bdi-sovereign-dataset/bdi_sovereign_dataset_v1.json` | Update `"mandate"` claim language to use 1,574 not 1,855 | HIGH |
-| All paper drafts | Replace "1,855 data points" with "1,574 verified empirical observations" | HIGH |
-| `farmblock-data/README.md` | Confirm city count says 50 (matches city_rankings.csv) | LOW |
+| File | Fix needed | Priority | Status |
+|------|-----------|---------|--------|
+| ~~`farmblock-data/methodology/fdi_manifest.json`~~ | ~~Update `cities` from 49 → 50 (verified row count)~~ | HIGH | ✅ **DONE 2026-0420** |
+| `farmblock-dataset/methodology/fdi_methodology_v2.json` | Remove proxy language from Phase 2 health limitation — Phase 2 uses CDC PLACES direct | MEDIUM | open |
+| `bdi-sovereign-dataset/bdi_sovereign_dataset_v1.json` | Update `"mandate"` claim language to use 1,574 not 1,855 | HIGH | open |
+| All paper drafts | Replace "1,855 data points" with "1,574 verified empirical observations" | HIGH | open |
+| `farmblock-data/README.md` | Confirm city count says 50 (matches city_rankings.csv) | LOW | open |
 
 ---
 
