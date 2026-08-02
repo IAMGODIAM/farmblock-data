@@ -1,29 +1,46 @@
 {
-  "dataset": "FarmBlock Distress Index v2.0",
+  "dataset": "FarmBlock Distress Index v2.1",
   "publisher": "E5 Enclave Incorporated",
-  "date": "2026-04-17",
+  "date": "2026-08-01",
   "license": "CC0 1.0 Universal",
-  "tracts": 15578,
-  "cities": 50,
+  "tracts": 15507,
+  "cities": 48,
   "fdi_dimensions": {
     "D1_economic": "poverty_rate (Census ACS 2023)",
     "D2_income": "inverted median_hh_income (Census ACS 2023)",
-    "D3_food_access": "food_desert_proxy \u00d7 60 + pct_no_internet \u00d7 0.4",
-    "D4_health": "mean(pct_diabetes, pct_high_bp) \u2014 CDC PLACES 2023",
+    "D3_food_access": "food_desert_proxy × 60 + pct_no_internet × 0.4",
+    "D4_health": "mean(pct_diabetes, pct_high_bp) — CDC PLACES 2023",
     "D5_vacancy": "vacancy_rate (Census ACS 2023)",
     "D6_digital": "pct_no_internet (Census ACS 2023)"
   },
-  "weights": "equal (1/6 each dimension) \u2014 v1 baseline",
+  "weights": "equal (1/6 each dimension) — v1 baseline",
   "normalization": "min-max 0-1 per dimension across all tracts in dataset",
   "limitations": [
-    "USDA FARA 2019 vintage \u2014 food access proxy used from ACS poverty+income thresholds",
-    "CDC PLACES 2023 \u2014 crude prevalence estimates, not direct measurement",
+    "USDA FARA 2019 vintage — food access proxy used from ACS poverty+income thresholds",
+    "CDC PLACES 2023 — crude prevalence estimates, not direct measurement",
     "D4 health imputed to 0 where CDC data unavailable (conservative)",
     "Food desert proxy: poverty_rate>=20 AND median_hh_income<=65000 (documented ACS approximation)",
-    "Dataset covers 50 metropolitan counties \u2014 not a national sample",
-    "FARA direct download unavailable \u2014 ACS poverty proxy substituted and labeled",
-    "Equal weights are a v1 baseline \u2014 alternative weightings should be tested"
+    "Dataset covers 49 metropolitan counties — not a national sample",
+    "FARA direct download unavailable — ACS poverty proxy substituted and labeled",
+    "Equal weights are a v1 baseline — alternative weightings should be tested"
   ],
-  "sha256_fdi_csv": "adb2244e679a34e1de1a743dddf4008fd370352ec56bcefae51a09f4911422f2",
-  "cities_note": "50 cities confirmed by row count in processed/farmblock_city_rankings.csv (authoritative)"
+  "sha256_fdi_csv": "712783625947eb642a5c93072a53ddbfed7803d10f705f5a7b30879d560fad69",
+  "cities_note": "48 cities / 49 counties confirmed by row counts; Selma AL removed in v2.1 (its rows were Montgomery County duplicates)",
+  "version": "2.1",
+  "counties": 49,
+  "states": 25,
+  "population": 61236857,
+  "changelog": [
+    {
+      "version": "2.1",
+      "date": "2026-08-01",
+      "changes": [
+        "dedupe: removed 71 Montgomery County AL rows mislabeled city=Selma (pull-config duplicates; all kept rows byte-identical to v2.0)",
+        "min-max normalization verified invariant; v2.0 scores remain valid",
+        "city rankings: Selma clone row removed",
+        "README statistics regenerated from CSV; stale filenames corrected",
+        "audit trail: validation/v2_1_hygiene_report.json"
+      ]
+    }
+  ]
 }
