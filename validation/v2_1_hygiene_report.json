@@ -1,0 +1,46 @@
+{
+  "rows_dropped": 71,
+  "drop_rule": "county FIPS 01101 (Montgomery County, AL) AND city == 'Selma' — pull-config duplicates; Selma (Dallas County 01047) was never actually pulled",
+  "minmax_invariant": true,
+  "score_recompute_corr_after_dedupe": 0.99993,
+  "sha256_before": "adb2244e679a34e1de1a743dddf4008fd370352ec56bcefae51a09f4911422f2",
+  "sha256_after": "712783625947eb642a5c93072a53ddbfed7803d10f705f5a7b30879d560fad69",
+  "headline": {
+    "tracts": 15507,
+    "counties": 49,
+    "cities": 48,
+    "states": 25,
+    "population": 61236857,
+    "high_distress_ge60": 165,
+    "fdi_mean": 27.27,
+    "fdi_max": 79.42
+  },
+  "top5_mean_fdi": [
+    "Albany, GA (46.8)",
+    "Macon, GA (41.5)",
+    "Shreveport, LA (41.4)",
+    "Jackson, MS (41.1)",
+    "Augusta, GA (38.7)"
+  ],
+  "city_rankings": "Selma, AL row removed (verified byte-clone of Montgomery's aggregates); all other rows byte-identical; pct_high_distress column verified internally consistent at the >=70 threshold",
+  "headline_before": {
+    "rows": 15578,
+    "unique_tracts": 15507,
+    "counties": 49,
+    "cities": 49,
+    "states": 25,
+    "population": 61464054
+  },
+  "readme_corrections": [
+    "tracts 12,426 -> 15,507 (README was stale vs CSV)",
+    "counties 53 -> 49; cities -> 48; states -> 25 (now stated)",
+    "population 45.6M -> 61.2M",
+    "high-distress (FDI>=60) 32 -> 165",
+    "top-cities table recomputed from CSV (v2.0 list cited Pine Bluff AR — a city/state not present in the data — and Selma's rank was an artifact of the duplicate rows)",
+    "D3/D4 dimension descriptions aligned with fdi_manifest.json (CDC PLACES tract data IS present; README claimed poverty proxy)",
+    "file references corrected: farmblock_tracts_v2.csv -> processed/farmblock_fdi_v2.csv; farmblock_cities_v2.csv -> processed/farmblock_city_rankings.csv; fdi_methodology_v2.json -> methodology/fdi_manifest.json; validation_report.json -> validation/clean_report.json; raw/census_acs_2023_raw.json -> raw/census_manifest.json + raw/fara_manifest.json; farmblock_pipeline_v2.py -> code/step1..step4 scripts"
+  ],
+  "method_note": "Hygiene-only release: no score recomputation, no methodology change. Kept rows are byte-identical to v2.0 (line-filter dedup, no round-trip).",
+  "produced_by": "Thelonia Grace (E5 Chief of Staff agent) — Slice A1 follow-up, commissioned 2026-08-01",
+  "commissioning_thread": "https://hyperagent.com/thread/cmsaxk30k158w06ad0jxmgm8s"
+}
